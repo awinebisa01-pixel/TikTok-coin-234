@@ -36,3 +36,15 @@
 <script src="app.js"></script>
 </body>
 </html>
+<div class="app">
+  <h2>Send Coins</h2>
+
+  <input id="username" placeholder="Enter username">
+  <input id="amount" type="number" placeholder="Amount">
+
+  <button onclick="sendCoins()" class="buy">Send</button>
+
+  <p id="status"></p>
+</div>
+
+<script src="app.js"></script>
