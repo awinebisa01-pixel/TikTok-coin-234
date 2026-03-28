@@ -48,3 +48,51 @@
 </div>
 
 <script src="app.js"></script>
+body {
+  background: #fff;
+  font-family: Arial;
+}
+
+.app {
+  padding: 15px;
+}
+
+.balance {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.coin {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.coin.active {
+  border: 2px solid red;
+}
+
+.buy {
+  width: 100%;
+  padding: 15px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.sendBtn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+}
