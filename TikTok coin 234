@@ -1,0 +1,118 @@
+index.html<!DOCTYPE html>
+<html>
+<head>
+  <title>Get Coins</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+  <h2>Get Coins</h2>
+
+  <div class="balance">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" width="30">
+    <span id="balance">5000</span>
+  </div>
+
+  <h3>Recharge</h3>
+
+  <div class="grid">
+    <div class="coin" onclick="select(this,30)">30<br>$0.31</div>
+    <div class="coin" onclick="select(this,350)">350<br>$3.65</div>
+    <div class="coin" onclick="select(this,700)">700<br>$7.25</div>
+    <div class="coin" onclick="select(this,1400)">1400<br>$14.49</div>
+    <div class="coin active" onclick="select(this,3500)">3500<br>$36.2</div>
+    <div class="coin">Custom</div>
+  </div>
+
+  <button class="buy">Buy Now</button>
+
+  <button onclick="location.href='send.html'" class="sendBtn">
+    Send Coins
+  </button>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
+send.html<div class="app">
+  <h2>Send Coins</h2>
+
+  <input id="username" placeholder="Enter username">
+  <input id="amount" type="number" placeholder="Amount">
+
+  <button onclick="sendCoins()" class="buy">Send</button>
+
+  <p id="status"></p>
+</div>
+
+<script src="app.js"></script>
+style.cssbody {
+  background: #fff;
+  font-family: Arial;
+}
+
+.app {
+  padding: 15px;
+}
+
+.balance {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.coin {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.coin.active {
+  border: 2px solid red;
+}
+
+.buy {
+  width: 100%;
+  padding: 15px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.sendBtn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+}
+app.jslet selectedAmount = 3500;
+
+function select(el, amount) {
+  document.querySelectorAll(".coin").forEach(c => c.classList.remove("active"));
+  el.classList.add("active");
+  selectedAmount = amount;
+}
+
+function sendCoins() {
+  let username = document.getElementById("username").value;
+  let amount = document.getElementById("amount").value;
+
+  document.getElementById("status").innerText =
+    "Sent " + amount + " coins to " + username;
+}
+vercel.json{
+  "routes": [
+    { "src": "/", "dest": "/index.html" }
+  ]
+}
